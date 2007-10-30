@@ -1,5 +1,5 @@
 %define name paman
-%define version 0.9.3
+%define version 0.9.4
 %define release %mkrel 1
 %define title Pulseaudio Manager
 %define longtitle Manager for Pulseaudio sound server for Linux
@@ -8,7 +8,7 @@ Summary: Manager for Pulseaudio sound server for Linux
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: %{name}-%{version}.tar.bz2
+Source0: %{name}-%{version}.tar.gz
 Patch: paman-0.9.2-typo.patch
 License: LGPL
 Group: Sound
@@ -16,7 +16,7 @@ Url: http://0pointer.de/lennart/projects/paman
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: gtkmm2.4-devel
 BuildRequires: libglademm-devel
-BuildRequires: libpulseaudio-devel >= 0.9.5
+BuildRequires: libpulseaudio-devel >= 0.9.7
 BuildRequires: lynx
 BuildRequires: desktop-file-utils
 Requires: pulseaudio
@@ -31,7 +31,6 @@ A simple GTK frontend for the pulseaudio sound server
 %patch -p1 -b .typo
 
 %build
-#export CPPFLAGS=-I%_includedir/alsa
 %configure2_5x
 %make
 
