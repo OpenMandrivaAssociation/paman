@@ -1,6 +1,6 @@
 %define name paman
 %define version 0.9.4
-%define release %mkrel 1
+%define release %mkrel 2
 %define title Pulseaudio Manager
 %define longtitle Manager for Pulseaudio sound server for Linux
 
@@ -9,6 +9,8 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: %{name}-%{version}.tar.gz
+Source1: %{name}-16.png
+Source2: %{name}-32.png
 Patch: paman-0.9.2-typo.patch
 License: LGPL
 Group: Sound
@@ -35,24 +37,36 @@ A simple GTK frontend for the pulseaudio sound server
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 
-
+sed -i "s/^Icon=.*/Icon=%{name}/" %{buildroot}%{_datadir}/applications/%{name}.desktop
 desktop-file-install --vendor="" \
   --remove-category="Application" \
   --add-category="GTK" \
   --add-category="X-MandrivaLinux-Multimedia-Sound" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
+  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/%{name}.desktop
+
+# Icons
+install -D -m 0644 %SOURCE1 %{buildroot}%{_miconsdir}/%{name}.png
+install -D -m 0644 %SOURCE2 %{buildroot}%{_iconsdir}/%{name}.png
+
+%post
+%{_bindir}/update-desktop-database %{_datadir}/applications > /dev/null
+
+%postun
+if [ -x %{_bindir}/update-desktop-database ]; then %{_bindir}/update-desktop-database %{_datadir}/applications > /dev/null ; fi
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
 %doc README LICENSE
-%_bindir/%name
-%_datadir/%name/%name.glade
-%_datadir/applications/%name.desktop
+%{_bindir}/%{name}
+%{_datadir}/%{name}/%{name}.glade
+%{_datadir}/applications/%{name}.desktop
+%{_miconsdir}/%{name}.png
+%{_iconsdir}/%{name}.png
 
 
