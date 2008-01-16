@@ -1,6 +1,6 @@
 %define name paman
 %define version 0.9.4
-%define release %mkrel 2
+%define release %mkrel 3
 %define title Pulseaudio Manager
 %define longtitle Manager for Pulseaudio sound server for Linux
 
@@ -52,10 +52,12 @@ install -D -m 0644 %SOURCE1 %{buildroot}%{_miconsdir}/%{name}.png
 install -D -m 0644 %SOURCE2 %{buildroot}%{_iconsdir}/%{name}.png
 
 %post
-%{_bindir}/update-desktop-database %{_datadir}/applications > /dev/null
+%update_desktop_database
+%update_menus
 
 %postun
-if [ -x %{_bindir}/update-desktop-database ]; then %{_bindir}/update-desktop-database %{_datadir}/applications > /dev/null ; fi
+%clean_desktop
+%clean_menus
 
 %clean
 rm -rf %{buildroot}
