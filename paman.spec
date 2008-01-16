@@ -44,7 +44,7 @@ sed -i "s/^Icon=.*/Icon=%{name}/" %{buildroot}%{_datadir}/applications/%{name}.d
 desktop-file-install --vendor="" \
   --remove-category="Application" \
   --add-category="GTK" \
-  --add-category="X-MandrivaLinux-Multimedia-Sound" \
+  --add-category="System" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 # Icons
