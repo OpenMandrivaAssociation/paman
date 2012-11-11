@@ -1,0 +1,11 @@
+--- paman-0.9.2/src/paman.desktop.typo	2006-06-21 01:35:19.000000000 +0200
++++ paman-0.9.2/src/paman.desktop	2006-07-10 07:50:58.000000000 +0200
+@@ -1,7 +1,7 @@
+ [Desktop Entry]
+ Encoding=UTF-8
+ Name=PulseAudio Manager
+-Comment=Manager your PulseAudio sound server.
++Comment=Manage your PulseAudio sound server.
+ Exec=paman
+ Icon=audio-card
+ StartupNotify=true
