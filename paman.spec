@@ -1,6 +1,6 @@
 %define name paman
 %define version 0.9.4
-%define release %mkrel 10
+%define release 11
 %define title Pulseaudio Manager
 %define longtitle Manager for Pulseaudio sound server for Linux
 
