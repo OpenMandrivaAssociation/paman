@@ -17,8 +17,8 @@ Group: Sound
 Url: http://0pointer.de/lennart/projects/paman
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: gtkmm2.4-devel
-BuildRequires: libglademm-devel
-BuildRequires: libpulseaudio-devel >= 0.9.7
+BuildRequires: pkgconfig(libglademm-2.4)
+BuildRequires: pulseaudio-devel >= 0.9.7
 BuildRequires: lynx
 BuildRequires: desktop-file-utils
 Requires: pulseaudio
