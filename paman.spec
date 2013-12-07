@@ -1,7 +1,7 @@
 Summary:	Manager for Pulseaudio sound server for Linux
 Name:		paman
 Version:	0.9.4
-Release:	11
+Release:	12
 License:	LGPLv2
 Group:		Sound
 Url:		http://0pointer.de/lennart/projects/paman
