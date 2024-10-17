@@ -4,7 +4,7 @@ Version:	0.9.4
 Release:	21
 License:	LGPLv2
 Group:		Sound
-Url:		http://0pointer.de/lennart/projects/paman
+Url:		https://0pointer.de/lennart/projects/paman
 Source0:	%{name}-%{version}.tar.gz
 Source1:	%{name}-16.png
 Source2:	%{name}-32.png
