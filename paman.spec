@@ -9,6 +9,11 @@ Source0:	%{name}-%{version}.tar.gz
 Source1:	%{name}-16.png
 Source2:	%{name}-32.png
 Patch0:		paman-0.9.2-typo.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	desktop-file-utils
 BuildRequires:	lynx
 BuildRequires:	pkgconfig(gtkmm-2.4)
